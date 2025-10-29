@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yazar-Eser Oyunu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Yazar-Eser Eşleştirme Oyunu</h1>
+
+    <div id="menu">
+      <h3>Bir edebiyat dönemi seç:</h3>
+      <select id="periodSelect">
+        <option value="">Dönem Seçiniz</option>
+        <option value="tanzimat">Tanzimat</option>
+        <option value="servet">Servet-i Fünun</option>
+        <option value="fecri">Fecr-i Ati</option>
+        <option value="milli">Milli Edebiyat</option>
+        <option value="cumhuriyet">Cumhuriyet</option>
+      </select>
+      <button id="startBtn">Oyuna Başla</button>
+    </div>
+
+    <div id="game" style="display:none;">
+      <p id="question">Yükleniyor...</p>
+      <div id="options"></div>
+      <p id="result"></p>
+      <button id="nextBtn">Sonraki Soru</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
