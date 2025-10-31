@@ -187,8 +187,9 @@ cumhuriyet : [
 let current = 0;
 let score = 0;
 let selectedPeriod = "";
-let activeQuestions = [];
+let activeQuestions = []; // Karışık sorular buraya yüklenecek
 
+// === ELEMENTLER ===
 const periodSelect = document.getElementById("periodSelect");
 const startBtn = document.getElementById("startBtn");
 const menu = document.getElementById("menu");
@@ -198,88 +199,102 @@ const optionsDiv = document.getElementById("options");
 const result = document.getElementById("result");
 const nextBtn = document.getElementById("nextBtn");
 
-startBtn.onclick = () => {
-  selectedPeriod = periodSelect.value;
-  if (!selectedPeriod || !questions[selectedPeriod]) {
-    alert("Lütfen bir dönem seçiniz.");
-    return;
-  }
-
-  activeQuestions = [...questions[selectedPeriod]];
-  shuffleArray(activeQuestions); // Rastgele sırala
-  current = 0;
-  score = 0;
-  menu.style.display = "none";
-  game.style.display = "block";
-  nextBtn.style.display = "none";
-  loadQuestion();
-};
-
-function loadQuestion() {
-  result.textContent = "";
-  const soru = activeQuestions[current];
-  question.textContent = `Soru ${current + 1}/${activeQuestions.length}: "${soru.yazar}" adlı yazarın eseri hangisidir?`;
-  optionsDiv.innerHTML = "";
-
-  soru.secenekler.forEach(eser => {
-    const btn = document.createElement("div");
-    btn.className = "option";
-    btn.textContent = eser;
-    btn.onclick = () => checkAnswer(btn, eser, soru.eser);
-    optionsDiv.appendChild(btn);
-  });
-}
-
-function checkAnswer(button, secilen, dogru) {
-  const optionButtons = document.querySelectorAll(".option");
-  optionButtons.forEach(btn => btn.onclick = null);
-
-  if (secilen === dogru) {
-    button.style.backgroundColor = "#a0e6a0";
-    result.textContent = "✅ Doğru!";
-    result.style.color = "green";
-    score++;
-  } else {
-    button.style.backgroundColor = "#f08080";
-    result.textContent = `❌ Yanlış! Doğru cevap: ${dogru}`;
-    result.style.color = "red";
-    optionButtons.forEach(btn => {
-      if (btn.textContent === dogru) {
-        btn.style.backgroundColor = "#a0e6a0";
-      }
-    });
-  }
-
-  nextBtn.style.display = "inline-block";
-}
-
-nextBtn.onclick = () => {
-  current++;
-  if (current < activeQuestions.length) {
-    nextBtn.style.display = "none";
-    loadQuestion();
-  } else {
-    showFinalScreen();
-  }
-};
-
-function showFinalScreen() {
-  question.textContent = `🎉 Oyun Bitti!`;
-  optionsDiv.innerHTML = `<p style="font-size: 20px;">Skorunuz: <strong>${score} / ${activeQuestions.length}</strong></p>`;
-  result.textContent = "";
-
-  nextBtn.textContent = "Yeniden Başla";
-  nextBtn.style.display = "inline-block";
-  nextBtn.onclick = () => {
-    menu.style.display = "block";
-    game.style.display = "none";
-    nextBtn.textContent = "Sonraki Soru";
-  };
-}
-
-function shuffleArray(arr) {
+// === SORULARI KARIŞTIR (Fisher-Yates) ===
+function shuffle(array) {
+  const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
+  return arr;
+}
+
+// === BAŞLAT ===
+startBtn.onclick = () => {
+  selectedPeriod = periodSelect.value;
+  if (!selectedPeriod || !questions[selectedPeriod]) {
+    return alert("Lütfen geçerli bir dönem seçin!");
+  }
+
+  // SORULARI KARIŞTIR VE YÜKLE
+  activeQuestions = shuffle(questions[selectedPeriod]);
+  
+  current = 0;
+  score = 0;
+  menu.style.display = "none";
+  game.style.display = "block";
+  showQuestion();
+};
+
+// === SORUYU GÖSTER ===
+function showQuestion() {
+  const q = activeQuestions[current];
+  question.innerText = `${current + 1}. ${q.yazar} hangi eseri yazmıştır?`;
+  
+  optionsDiv.innerHTML = "";
+  const shuffledOptions = shuffle([...q.secenekler]);
+
+  shuffledOptions.forEach(option => {
+    const btn = document.createElement("button");
+    btn.innerText = option;
+    btn.onclick = () => checkAnswer(option, btn);
+    optionsDiv.appendChild(btn);
+  });
+
+  result.innerText = "";
+  nextBtn.style.display = "none";
+}
+
+// === CEVAP KONTROL ===
+function checkAnswer(selected, clickedBtn) {
+  const q = activeQuestions[current];
+  const buttons = optionsDiv.querySelectorAll("button");
+
+  let correctFound = false;
+
+  buttons.forEach(btn => {
+    btn.disabled = true;
+    if (btn.innerText === q.eser) {
+      btn.style.backgroundColor = "#27ae60";
+      btn.style.color = "white";
+      correctFound = true;
+    } else if (btn === clickedBtn && selected !== q.eser) {
+      btn.style.backgroundColor = "#e74c3c";
+      btn.style.color = "white";
+    }
+  });
+
+  if (selected === q.eser) {
+    score++;
+    result.innerText = "Doğru!";
+    result.style.color = "#27ae60";
+  } else {
+    result.innerText = `Yanlış! Doğru cevap: ${q.eser}`;
+    result.style.color = "#e74c3c";
+  }
+
+  nextBtn.style.display = "block";
+}
+
+// === SONRAKİ SORU ===
+nextBtn.onclick = () => {
+  current++;
+  if (current < activeQuestions.length) {
+    showQuestion();
+  } else {
+    // === OYUN BİTTİ ===
+    game.innerHTML = `
+      <h2>Quiz Tamamlandı!</h2>
+      <p class="final-score">Skorunuz: ${score} / ${activeQuestions.length}</p>
+      <button class="back-btn" onclick="goToMenu()">Ana Sayfaya Dön</button>
+      <button onclick="location.reload()" style="margin-top:10px;">Tekrar Oyna</button>
+    `;
+  }
+};
+
+// === ANA SAYFAYA DÖN ===
+function goToMenu() {
+  game.style.display = "none";
+  menu.style.display = "block";
+  periodSelect.value = "";
 }
