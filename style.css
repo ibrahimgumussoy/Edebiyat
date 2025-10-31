@@ -1,3 +1,4 @@
+/* ==== GENEL STİL ==== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,6 +16,7 @@ body {
   padding: 30px;
 }
 
+/* ==== ANA KUTU ==== */
 .container {
   background-color: #ffffff10;
   backdrop-filter: blur(10px);
@@ -26,6 +28,7 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* ==== METİNLER ==== */
 h1 {
   font-size: 28px;
   margin-bottom: 20px;
@@ -37,6 +40,7 @@ h3 {
   color: #ddd;
 }
 
+/* ==== SEÇİCİLER ve BUTONLAR ==== */
 select, button {
   padding: 12px 20px;
   font-size: 16px;
@@ -58,13 +62,18 @@ button {
   background-color: #ffcc00;
   color: #000;
   font-weight: bold;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.1s;
 }
 
 button:hover {
   background-color: #e6b800;
 }
 
+button:active {
+  transform: scale(0.97);
+}
+
+/* ==== OYUN ALANI ==== */
 #question {
   font-size: 20px;
   margin-bottom: 20px;
@@ -75,6 +84,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: stretch;
   margin-bottom: 15px;
 }
 
@@ -84,11 +94,16 @@ button:hover {
   color: #000;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out, transform 0.1s;
+  text-align: center;
 }
 
 .option:hover {
   background-color: #ddd;
+}
+
+.option:active {
+  transform: scale(0.98);
 }
 
 #result {
@@ -97,17 +112,54 @@ button:hover {
   min-height: 22px;
 }
 
-@media screen and (max-width: 600px) {
-  .container {
+/* ==== RESPONSIVE ==== */
+
+/* Tabletler için */
+@media screen and (max-width: 768px) {
+  body {
     padding: 20px;
+  }
+
+  .container {
+    max-width: 90%;
+    padding: 25px;
   }
 
   h1 {
     font-size: 24px;
   }
 
-  button, select {
+  select, button {
     font-size: 15px;
     padding: 10px 16px;
+  }
+
+  #question {
+    font-size: 18px;
+  }
+
+  .option {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Küçük telefonlar için */
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button, select {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .option {
+    font-size: 14px;
   }
 }
