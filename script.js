@@ -298,3 +298,4 @@ function goToMenu() {
   menu.style.display = "block";
   periodSelect.value = "";
 }
+
