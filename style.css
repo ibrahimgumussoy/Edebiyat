@@ -10,20 +10,22 @@ body {
   background: linear-gradient(to right, #2b0440, #400334);
   color: #fff;
   min-height: 100vh;
+  /* Flexbox ile dikey ve yatay merkezleme (Mobil ve masaüstünde içeriğin ortada kalmasını sağlar) */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
 }
 
-/* ==== ANA KUTU ==== */
+/* ==== ANA KUTU (.container) ==== */
 .container {
   background-color: #ffffff10;
   backdrop-filter: blur(10px);
   padding: 30px 40px;
   border-radius: 15px;
-  width: 100%;
-  max-width: 600px;
+  /* Mobil görünümü iyileştirmek için genişlik ayarları: */
+  width: 90%; /* Kutunun ekranın %90'ını kaplamasını sağlar */
+  max-width: 600px; /* Maksimum genişliği 600px ile sınırlar (masaüstü için) */
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
@@ -112,72 +114,19 @@ button:active {
   min-height: 22px;
 }
 
-/* ==== RESPONSIVE ==== */
-
-/* Tabletler için */
-@media screen and (max-width: 768px) {
-  body {
-    padding: 20px;
-  }
-
-  .container {
-    max-width: 90%;
-    padding: 25px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  select, button {
-    font-size: 15px;
-    padding: 10px 16px;
-  }
-
-  #question {
-    font-size: 18px;
-  }
-
-  .option {
-    font-size: 15px;
-    padding: 10px;
-  }
-}
-
-/* Küçük telefonlar için */
-@media screen and (max-width: 400px) {
-  .container {
-    padding: 15px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  button, select {
-    font-size: 13px;
-    padding: 8px 12px;
-  }
-
-  .option {
-    font-size: 14px;
-  }
-}
-
-
-/* Sabit sosyal medya ikonları */
+/* ==== SOSYAL MEDYA İKONLARI (Sabit) ==== */
 .social-fixed {
   position: fixed;
-  bottom: 20px;       /* Sayfanın altından 20px yukarıda */
-  right: 20px;        /* Sağ kenardan 20px içeride */
+  bottom: 20px;
+  right: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;          /* İkonlar arası boşluk */
+  gap: 10px;
   z-index: 1000;
 }
 
 .social-fixed a {
-  background-color: #e40306;
+  background-color: #e40306; /* Renk örnek olarak bırakıldı */
   color: white;
   font-size: 22px;
   width: 45px;
@@ -195,111 +144,109 @@ button:active {
   transform: scale(1.1);
 }
 
-/* ============= YENİ VE TEMİZ RESPONSIVE DÜZELTMELERİ ============= */
-/* Tüm eski media query’leri ezer, çakışmayı önler */
+/* ==== RESPONSIVE TASARIM (Media Query'ler) ==== */
 
+/* Tablet ve orta boy cihazlar (Max 768px) */
 @media screen and (max-width: 768px) {
   body {
-    padding: 15px !important;
+    padding: 20px;
   }
 
   .container {
-    max-width: 95% !important;
-    padding: 25px 20px !important;
-    border-radius: 12px !important;
+    max-width: 95%; /* Mobil cihazlarda daha geniş kullanım */
+    padding: 20px;
+    border-radius: 12px;
   }
 
   h1 {
-    font-size: 24px !important;
+    font-size: 24px;
   }
 
-  select,
-  button {
-    font-size: 15px !important;
-    padding: 11px 16px !important;
+  h3 {
+    font-size: 17px;
+  }
+
+  select, button {
+    font-size: 15px;
+    padding: 10px 15px;
   }
 
   #question {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
   .option {
-    font-size: 15px !important;
-    padding: 11px !important;
+    font-size: 15px;
+    padding: 10px;
   }
 
+  /* Sosyal ikonlar boyutunu küçült */
   .social-fixed a {
-    width: 42px !important;
-    height: 42px !important;
-    font-size: 20px !important;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
   }
 }
 
-@media screen and (max-width: 480px) {
+/* Küçük telefonlar için (Max 400px) */
+@media screen and (max-width: 400px) {
   .container {
-    padding: 20px 15px !important;
-    max-width: 100% !important;
+    padding: 15px;
+    /* max-width: 100%; yerine daha küçük bir değer bıraktık (üstteki 95%) */
   }
 
   h1 {
-    font-size: 22px !important;
+    font-size: 20px;
   }
 
-  select,
-  button {
-    font-size: 14px !important;
-    padding: 10px 14px !important;
+  button, select {
+    font-size: 13px;
+    padding: 8px 12px;
   }
 
   .option {
-    font-size: 14.5px !important;
-    padding: 10px !important;
+    font-size: 14px;
+    padding: 9px;
   }
 
-  #question {
-    font-size: 17px !important;
-  }
-
+  /* Sağ alttaki ikonlar konumu ve boyutu */
   .social-fixed {
-    bottom: 12px !important;
-    right: 12px !important;
-    gap: 10px !important;
+    right: 10px;
+    bottom: 10px;
+    gap: 8px;
   }
 
   .social-fixed a {
-    width: 40px !important;
-    height: 40px !important;
-    font-size: 19px !important;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 }
 
-@media screen and (max-width: 360px) {
+
+/* Ultra küçük cihazlar (Max 330px) */
+@media screen and (max-width: 330px) {
   .container {
-    padding: 18px 12px !important;
+    padding: 12px;
   }
 
   h1 {
-    font-size: 20px !important;
+    font-size: 18px;
   }
 
-  select,
-  button,
+  select, button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
   .option {
-    font-size: 13.5px !important;
-    padding: 9px 12px !important;
+    font-size: 13px;
+    padding: 8px;
   }
 
   .social-fixed a {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 17px !important;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
   }
 }
-
-/* Ekstra güvenlik: game-container ve social-links artık kullanılmıyor */
-.game-container,
-.social-links {
-  display: none !important;
-}
-
-
