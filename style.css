@@ -10,22 +10,20 @@ body {
   background: linear-gradient(to right, #2b0440, #400334);
   color: #fff;
   min-height: 100vh;
-  /* Flexbox ile dikey ve yatay merkezleme (Mobil ve masaüstünde içeriğin ortada kalmasını sağlar) */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
 }
 
-/* ==== ANA KUTU (.container) ==== */
+/* ==== ANA KUTU ==== */
 .container {
   background-color: #ffffff10;
   backdrop-filter: blur(10px);
   padding: 30px 40px;
   border-radius: 15px;
-  /* Mobil görünümü iyileştirmek için genişlik ayarları: */
-  width: 90%; /* Kutunun ekranın %90'ını kaplamasını sağlar */
-  max-width: 600px; /* Maksimum genişliği 600px ile sınırlar (masaüstü için) */
+  width: 100%;
+  max-width: 600px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
@@ -114,19 +112,72 @@ button:active {
   min-height: 22px;
 }
 
-/* ==== SOSYAL MEDYA İKONLARI (Sabit) ==== */
+/* ==== RESPONSIVE ==== */
+
+/* Tabletler için */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  select, button {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+
+  #question {
+    font-size: 18px;
+  }
+
+  .option {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Küçük telefonlar için */
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button, select {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .option {
+    font-size: 14px;
+  }
+}
+
+
+/* Sabit sosyal medya ikonları */
 .social-fixed {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 20px;       /* Sayfanın altından 20px yukarıda */
+  right: 20px;        /* Sağ kenardan 20px içeride */
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 10px;          /* İkonlar arası boşluk */
   z-index: 1000;
 }
 
 .social-fixed a {
-  background-color: #e40306; /* Renk örnek olarak bırakıldı */
+  background-color: #e40306;
   color: white;
   font-size: 22px;
   width: 45px;
@@ -144,16 +195,16 @@ button:active {
   transform: scale(1.1);
 }
 
-/* ==== RESPONSIVE TASARIM (Media Query'ler) ==== */
+/* ==== RESPONSIVE TASARIM ==== */
 
-/* Tablet ve orta boy cihazlar (Max 768px) */
+/* Tablet ve orta boy cihazlar */
 @media screen and (max-width: 768px) {
   body {
-    padding: 20px;
+    padding: 15px;
   }
 
   .container {
-    max-width: 95%; /* Mobil cihazlarda daha geniş kullanım */
+    max-width: 95%;
     padding: 20px;
     border-radius: 12px;
   }
@@ -180,7 +231,7 @@ button:active {
     padding: 10px;
   }
 
-  /* Sosyal ikonlar boyutunu küçült */
+  /* Sosyal ikonlar çok büyük durmasın */
   .social-fixed a {
     width: 40px;
     height: 40px;
@@ -188,11 +239,12 @@ button:active {
   }
 }
 
-/* Küçük telefonlar için (Max 400px) */
+
+/* Küçük telefonlar için */
 @media screen and (max-width: 400px) {
   .container {
     padding: 15px;
-    /* max-width: 100%; yerine daha küçük bir değer bıraktık (üstteki 95%) */
+    max-width: 100%;
   }
 
   h1 {
@@ -209,7 +261,7 @@ button:active {
     padding: 9px;
   }
 
-  /* Sağ alttaki ikonlar konumu ve boyutu */
+  /* Sağ alttaki ikonlar daha da küçülüyor */
   .social-fixed {
     right: 10px;
     bottom: 10px;
@@ -224,7 +276,7 @@ button:active {
 }
 
 
-/* Ultra küçük cihazlar (Max 330px) */
+/* Ultra küçük cihazlar (iPhone SE, 320px ekranlar) */
 @media screen and (max-width: 330px) {
   .container {
     padding: 12px;
@@ -250,3 +302,20 @@ button:active {
     font-size: 16px;
   }
 }
+
+.game-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 450px;
+}
+
+.social-links {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+
