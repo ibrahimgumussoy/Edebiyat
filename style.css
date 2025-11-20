@@ -194,3 +194,112 @@ button:active {
   background-color: #f39c12;
   transform: scale(1.1);
 }
+
+/* ==== RESPONSIVE TASARIM ==== */
+
+/* Tablet ve orta boy cihazlar */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    max-width: 95%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  select, button {
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+
+  #question {
+    font-size: 18px;
+  }
+
+  .option {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  /* Sosyal ikonlar çok büyük durmasın */
+  .social-fixed a {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+
+/* Küçük telefonlar için */
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  button, select {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .option {
+    font-size: 14px;
+    padding: 9px;
+  }
+
+  /* Sağ alttaki ikonlar daha da küçülüyor */
+  .social-fixed {
+    right: 10px;
+    bottom: 10px;
+    gap: 8px;
+  }
+
+  .social-fixed a {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+
+/* Ultra küçük cihazlar (iPhone SE, 320px ekranlar) */
+@media screen and (max-width: 330px) {
+  .container {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  select, button {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+
+  .option {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .social-fixed a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
