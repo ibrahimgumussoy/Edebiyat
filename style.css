@@ -163,3 +163,34 @@ button:active {
     font-size: 14px;
   }
 }
+
+
+/* Sabit sosyal medya ikonları */
+.social-fixed {
+  position: fixed;
+  bottom: 20px;       /* Sayfanın altından 20px yukarıda */
+  right: 20px;        /* Sağ kenardan 20px içeride */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;          /* İkonlar arası boşluk */
+  z-index: 1000;
+}
+
+.social-fixed a {
+  background-color: #e40306;
+  color: white;
+  font-size: 22px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-fixed a:hover {
+  background-color: #f39c12;
+  transform: scale(1.1);
+}
