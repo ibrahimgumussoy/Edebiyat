@@ -195,127 +195,111 @@ button:active {
   transform: scale(1.1);
 }
 
-/* ==== RESPONSIVE TASARIM ==== */
+/* ============= YENİ VE TEMİZ RESPONSIVE DÜZELTMELERİ ============= */
+/* Tüm eski media query’leri ezer, çakışmayı önler */
 
-/* Tablet ve orta boy cihazlar */
 @media screen and (max-width: 768px) {
   body {
-    padding: 15px;
+    padding: 15px !important;
   }
 
   .container {
-    max-width: 95%;
-    padding: 20px;
-    border-radius: 12px;
+    max-width: 95% !important;
+    padding: 25px 20px !important;
+    border-radius: 12px !important;
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 24px !important;
   }
 
-  h3 {
-    font-size: 17px;
-  }
-
-  select, button {
-    font-size: 15px;
-    padding: 10px 15px;
+  select,
+  button {
+    font-size: 15px !important;
+    padding: 11px 16px !important;
   }
 
   #question {
-    font-size: 18px;
+    font-size: 18px !important;
   }
 
   .option {
-    font-size: 15px;
-    padding: 10px;
+    font-size: 15px !important;
+    padding: 11px !important;
   }
 
-  /* Sosyal ikonlar çok büyük durmasın */
   .social-fixed a {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 20px !important;
   }
 }
 
-
-/* Küçük telefonlar için */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .container {
-    padding: 15px;
-    max-width: 100%;
+    padding: 20px 15px !important;
+    max-width: 100% !important;
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 22px !important;
   }
 
-  button, select {
-    font-size: 13px;
-    padding: 8px 12px;
+  select,
+  button {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
   }
 
   .option {
-    font-size: 14px;
-    padding: 9px;
+    font-size: 14.5px !important;
+    padding: 10px !important;
   }
 
-  /* Sağ alttaki ikonlar daha da küçülüyor */
+  #question {
+    font-size: 17px !important;
+  }
+
   .social-fixed {
-    right: 10px;
-    bottom: 10px;
-    gap: 8px;
+    bottom: 12px !important;
+    right: 12px !important;
+    gap: 10px !important;
   }
 
   .social-fixed a {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 19px !important;
   }
 }
 
-
-/* Ultra küçük cihazlar (iPhone SE, 320px ekranlar) */
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 360px) {
   .container {
-    padding: 12px;
+    padding: 18px 12px !important;
   }
 
   h1 {
-    font-size: 18px;
+    font-size: 20px !important;
   }
 
-  select, button {
-    font-size: 12px;
-    padding: 7px 10px;
-  }
-
+  select,
+  button,
   .option {
-    font-size: 13px;
-    padding: 8px;
+    font-size: 13.5px !important;
+    padding: 9px 12px !important;
   }
 
   .social-fixed a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 17px !important;
   }
 }
 
-.game-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 450px;
-}
-
+/* Ekstra güvenlik: game-container ve social-links artık kullanılmıyor */
+.game-container,
 .social-links {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+  display: none !important;
 }
 
 
