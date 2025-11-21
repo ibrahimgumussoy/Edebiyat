@@ -112,67 +112,14 @@ button:active {
   min-height: 22px;
 }
 
-/* ==== RESPONSIVE ==== */
-
-/* Tabletler için */
-@media screen and (max-width: 768px) {
-  body {
-    padding: 20px;
-  }
-
-  .container {
-    max-width: 90%;
-    padding: 25px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  select, button {
-    font-size: 15px;
-    padding: 10px 16px;
-  }
-
-  #question {
-    font-size: 18px;
-  }
-
-  .option {
-    font-size: 15px;
-    padding: 10px;
-  }
-}
-
-/* Küçük telefonlar için */
-@media screen and (max-width: 400px) {
-  .container {
-    padding: 15px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  button, select {
-    font-size: 13px;
-    padding: 8px 12px;
-  }
-
-  .option {
-    font-size: 14px;
-  }
-}
-
-
-/* Sabit sosyal medya ikonları */
+/* ==== SABİT SOSYAL MEDYA İKONLARI ==== */
 .social-fixed {
   position: fixed;
-  bottom: 20px;       /* Sayfanın altından 20px yukarıda */
-  right: 20px;        /* Sağ kenardan 20px içeride */
+  bottom: 20px;
+  right: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;          /* İkonlar arası boşluk */
+  gap: 10px;
   z-index: 1000;
 }
 
@@ -195,17 +142,17 @@ button:active {
   transform: scale(1.1);
 }
 
-/* ==== RESPONSIVE TASARIM ==== */
+/* ==== RESPONSIVE ==== */
 
-/* Tablet ve orta boy cihazlar */
+/* Tablet ve orta cihazlar */
 @media screen and (max-width: 768px) {
   body {
-    padding: 15px;
+    padding: 20px;
   }
 
   .container {
     max-width: 95%;
-    padding: 20px;
+    padding: 22px;
     border-radius: 12px;
   }
 
@@ -231,7 +178,6 @@ button:active {
     padding: 10px;
   }
 
-  /* Sosyal ikonlar çok büyük durmasın */
   .social-fixed a {
     width: 40px;
     height: 40px;
@@ -239,32 +185,38 @@ button:active {
   }
 }
 
-
-/* Küçük telefonlar için */
-@media screen and (max-width: 400px) {
-  .container {
+/* Telefonlar (tek düzen) */
+@media screen and (max-width: 480px) {
+  body {
     padding: 15px;
+  }
+
+  .container {
     max-width: 100%;
+    padding: 18px;
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
-  button, select {
-    font-size: 13px;
-    padding: 8px 12px;
+  select, button {
+    font-size: 14px;
+    padding: 9px 14px;
+  }
+
+  #question {
+    font-size: 17px;
   }
 
   .option {
-    font-size: 14px;
-    padding: 9px;
+    font-size: 15px;
+    padding: 10px;
   }
 
-  /* Sağ alttaki ikonlar daha da küçülüyor */
   .social-fixed {
-    right: 10px;
-    bottom: 10px;
+    right: 12px;
+    bottom: 12px;
     gap: 8px;
   }
 
@@ -275,8 +227,7 @@ button:active {
   }
 }
 
-
-/* Ultra küçük cihazlar (iPhone SE, 320px ekranlar) */
+/* Ultra küçük cihazlar (iPhone SE ve 320px altı) */
 @media screen and (max-width: 330px) {
   .container {
     padding: 12px;
@@ -288,7 +239,7 @@ button:active {
 
   select, button {
     font-size: 12px;
-    padding: 7px 10px;
+    padding: 7px 11px;
   }
 
   .option {
@@ -297,25 +248,8 @@ button:active {
   }
 
   .social-fixed a {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
   }
 }
-
-.game-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 450px;
-}
-
-.social-links {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
-
