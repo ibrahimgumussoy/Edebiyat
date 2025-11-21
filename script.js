@@ -131,7 +131,7 @@ milli : [
   { yazar: "Ahmet Hikmet Müftüoğlu", eser: "Gönül Hanım", secenekler: ["Gönül Hanım", "Dokuzuncu Hariciye Koğuşu", "Mai ve Siyah", "Gülüp Ağladıklarım", "İskendername"] },
   { yazar: "Ali Canip Yöntem", eser: "Geçtiğim Yol", secenekler: ["Geçtiğim Yol", "Aganta Burina Burinata", "Makber", "Altın Işık", "Asım"] },
   { yazar: "Yusuf Akçura", eser: "Üç Tarz-ı Siyaset", secenekler: ["Üç Tarz-ı Siyaset", "Kanije Kalesi ve Osmanlı Tarihi", "Korkuyu Beklerken", "Siyah İnciler", "Nadide"] },
-  { yazar: "Halide Edib Adıvar", eser: "Handan", secenekler: ["Handan", "Benim Küöük Dostlarım", "Çankaya", "İstanbul'un İç Yüzü", "Hançer"] },
+  { yazar: "Halide Edib Adıvar", eser: "Handan", secenekler: ["Handan", "Benim Küçük Dostlarım", "Çankaya", "İstanbul'un İç Yüzü", "Hançer"] },
   { yazar: "Aka Gündüz", eser: "Kurbağacık", secenekler: ["Kurbağacık", "Eski Şehrin İnsanları", "Gölgeler", "Çete", "Hüküm Gecesi"] },
   { yazar: "Mehmet Akif Ersoy", eser: "Asım", secenekler: ["Asım", "Kendi Gök Kubbemiz", "Takdir-i Elhan", "Macera'yı Aşk", "Terkib-i Bent"] }
 ],
@@ -303,3 +303,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   }
 });
+
