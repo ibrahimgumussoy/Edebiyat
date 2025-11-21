@@ -53,7 +53,7 @@ servet : [
   { yazar: "Halit Ziya Uşaklıgil", eser: "Nemide", secenekler: ["Nemide", "Yaban", "Tutunamayanlar", "Pençe", "İstanbu'un İç Yüzü"] },
   { yazar: "Halit Ziya Uşaklıgil", eser: "Bir Ölünün Defteri", secenekler: ["Aziz İstanbul", "Çalıkuşu", "İnce Memed", "Bir Ölünün Defteri", "Eylül"] },
   { yazar: "Cenap Şahabettin", eser: "Hac Yolunda", secenekler: ["Hac Yolunda", "Seyahat Jurnali", "İstanbul’un İç Yüzü", "Avrupa Mektupları", "Asım"] },
-  { yazar: "Tevfik Fikret", eser: "Sis", secenekler: ["Sevda Sözleri", "Piyale", "Şermin", "Sis", "Tamat"] },
+  { yazar: "Tevfik Fikret", eser: "Sis", secenekler: ["Sevda Sözleri", "Piyale", "Şermin", "Taaşşuk-ı Talat ve Fitnat", "Tamat"] },
   { yazar: "Süleyman Nazif", eser: "Batarya ile Ateş", secenekler: ["Batarya ile Ateş", "Safahat", "Kağnı", "Firak-ı Irak", "On Dokuzuncu Asır"] },
   { yazar: "Ahmet Hikmet Müftüoğlu", eser: "Çağlayanlar", secenekler: ["Kaldırımlar", "Kadın Pençesi", "Araba Sevdası", "Çağlayanlar", "Tiryaki Sözleri"] },
 
@@ -303,4 +303,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   }
 });
+
 
